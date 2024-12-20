@@ -20,7 +20,7 @@ Key technologies used:
 7. **Reviews**: Users can write reviews, which are visible to others.
 8. **Dark & light mode Option**: User can change ther experinece of visuals based on dark or light mode.  
 9. **Watch Providers**: Display streaming or viewing platforms where each movie or TV series is available.  
-10. **Movie Recommendations**: Suggest movies or TV series to users based on their ratings or viewing history.  
+10. **Similier Movies**: Suggest movies or TV series to users based on the current movie in the page.  
 11. **Watchlist**: Allow users to save movies or TV series they want to watch later.  
 12. **Favorite Movies List**: Enable users to create a personalized list of their favorite movies.  
 13. **Responsive Design**: Ensure compatibility and functionality across various devices.  
