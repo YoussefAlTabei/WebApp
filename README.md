@@ -1,4 +1,4 @@
-# Movie Website  
+# MML (MyMovieList)
 
 ## Overview  
 This project is a full-stack movie website that provides users with detailed movie information, ratings, reviews, and personalized features. It is built using **React.js** for the front end, **Django** for the back end, and integrates the **TMDB API** for accessing a comprehensive movie database.  
