@@ -23,5 +23,6 @@ urlpatterns = [
     path('', lambda request: redirect('login')),
     path("homepage/", include("myapp.urls")),
     path("members/",include("django.contrib.auth.urls")),
-    path("members/",include("members.urls"))
+    path("members/",include("members.urls")),
+    path('backend/', include('backend.urls')),
 ]
