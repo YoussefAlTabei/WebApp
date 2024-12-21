@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from backend.models import Review
-
+from .models import Watchlist, Favorites
 
 @login_required
 def submit_review(request):
@@ -19,3 +19,23 @@ def submit_review(request):
         return JsonResponse({"message": "Review submitted successfully!"}, status=201)
 
     return render(request, "submit_review.html")
+
+def add_to_watchlist(request):
+    if request.method == "POST":
+        movie_name = request.POST.get("movie_name")
+        user = request.user
+        watchlist_entry, created = Watchlist.objects.get_or_create(user=user, movie_name=movie_name)
+        if created:
+            return JsonResponse({"message": "Added to watchlist!"})
+        else:
+            return JsonResponse({"message": "Movie already in watchlist!"})
+
+def add_to_favorites(request):
+    if request.method == "POST":
+        movie_name = request.POST.get("movie_name")
+        user = request.user
+        favorites_entry, created = Favorites.objects.get_or_create(user=user, movie_name=movie_name)
+        if created:
+            return JsonResponse({"message": "Added to favorites!"})
+        else:
+            return JsonResponse({"message": "Movie already in favorites!"})
