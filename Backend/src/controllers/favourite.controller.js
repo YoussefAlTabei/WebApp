@@ -1,40 +1,40 @@
 import responseHandler from "../handlers/response.handler.js";
-import favoriteModel from "../models/favorite.model.js";
+import favouriteModel from "../models/favourite.model.js";
 
-const addFavorite = async (req, res) => {
+const addFavourite = async (req, res) => {
   try {
-    const isFavorite = await favoriteModel.findOne({
+    const isFavourite = await favouriteModel.findOne({
       user: req.user.id,
       mediaId: req.body.mediaId
     });
 
-    if (isFavorite) return responseHandler.ok(res, isFavorite);
+    if (isFavourite) return responseHandler.ok(res, isFavourite);
 
-    const favorite = new favoriteModel({
+    const favourite = new favouriteModel({
       ...req.body,
       user: req.user.id
     });
 
-    await favorite.save();
+    await favourite.save();
 
-    responseHandler.created(res, favorite);
+    responseHandler.created(res, favourite);
   } catch {
     responseHandler.error(res);
   }
 };
 
-const removeFavorite = async (req, res) => {
+const removeFavourite = async (req, res) => {
   try {
-    const { favoriteId } = req.params;
+    const { favouriteId } = req.params;
 
-    const favorite = await favoriteModel.findOne({
+    const favourite = await favouriteModel.findOne({
       user: req.user.id,
-      _id: favoriteId
+      _id: favouriteId
     });
 
-    if (!favorite) return responseHandler.notfound(res);
+    if (!favourite) return responseHandler.notfound(res);
 
-    await favorite.remove();
+    await favourite.remove();
 
     responseHandler.ok(res);
   } catch {
@@ -42,14 +42,14 @@ const removeFavorite = async (req, res) => {
   }
 };
 
-const getFavoritesOfUser = async (req, res) => {
+const getFavouritesOfUser = async (req, res) => {
   try {
-    const favorite = await favoriteModel.find({ user: req.user.id }).sort("-createdAt");
+    const favourite = await favouriteModel.find({ user: req.user.id }).sort("-createdAt");
 
-    responseHandler.ok(res, favorite);
+    responseHandler.ok(res, favourite);
   } catch {
     responseHandler.error(res);
   }
 };
 
-export default { addFavorite, removeFavorite, getFavoritesOfUser };
+export default { addFavourite, removeFavourite, getFavouritesOfUser };

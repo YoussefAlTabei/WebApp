@@ -1,6 +1,6 @@
 import express from "express";
 import { body } from "express-validator";
-import favoriteController from "../controllers/favorite.controller.js";
+import favouriteController from "../controllers/favourite.controller.js";
 import userController from "../controllers/user.controller.js";
 import requestHandler from "../handlers/request.handler.js";
 import userModel from "../models/user.model.js";
@@ -73,13 +73,13 @@ router.get(
 );
 
 router.get(
-  "/favorites",
+  "/favourites",
   tokenMiddleware.auth,
-  favoriteController.getFavoritesOfUser
+  favouriteController.getFavouritesOfUser
 );
 
 router.post(
-  "/favorites",
+  "/favourites",
   tokenMiddleware.auth,
   body("mediaType")
     .exists().withMessage("mediaType is required")
@@ -94,13 +94,13 @@ router.post(
   body("mediaRate")
     .exists().withMessage("mediaRate is required"),
   requestHandler.validate,
-  favoriteController.addFavorite
+  favouriteController.addFavourite
 );
 
 router.delete(
-  "/favorites/:favoriteId",
+  "/favourites/:favouriteId",
   tokenMiddleware.auth,
-  favoriteController.removeFavorite
+  favouriteController.removeFavourite
 );
 
 export default router;
