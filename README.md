@@ -323,8 +323,4 @@ const MovieList = () => {
 ## License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
----
-
-## Contact
-For any queries, suggestions, or feedback, feel free to contact us via the **Contact Us** page on the website or email us at [developer@example.com](mailto:developer@example.com).
 
