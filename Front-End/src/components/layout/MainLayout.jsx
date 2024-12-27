@@ -1,7 +1,8 @@
 import {Box} from "@mui/material";
 import {Outlet} from "react-router-dom";
 import GlobalLoading from "../common/GlobalLoading.jsx";
-import Footer from "../common/Footer";
+import Footer1 from "../common/Footer";
+import Navbar from "../common/Navbar.jsx";
 
 const MainLayout = () => {
     return(
@@ -13,6 +14,7 @@ const MainLayout = () => {
             {/*login modal*/}
             <Box display="flex" minHeight="100vh">
                 {/*  header  */}
+                <Navbar></Navbar>
                 {/*  header  */}
 
                 {/*  main  */}
@@ -27,7 +29,7 @@ const MainLayout = () => {
                 {/*  main  */}
             </Box>
             {/*  footer  */}
-            <Footer />
+            <Footer1 />
             {/*  footer  */}
         </>
     )

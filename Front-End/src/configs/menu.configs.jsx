@@ -1,4 +1,4 @@
-import { HomeOutlined, SlideshowOutlined, LiveTvOutlined, FavoriteBorderOutlined, SearchOutlined, RateReviewOutlined } from "@mui/icons-material";
+import { TvOutlined,HomeOutlined, SlideshowOutlined, LiveTvOutlined, FavoriteBorderOutlined, SearchOutlined, RateReviewOutlined } from "@mui/icons-material";
 
 const main = [
     {
@@ -33,6 +33,12 @@ const user = [
         path: "/favourites",
         icon: () => <FavoriteBorderOutlined />,
         state: "favourite"
+    },
+    {
+        display: "watchList",
+        path: "/watchList",
+        icon: () => <TvOutlined />,
+        state: "watchlist"
     },
     {
         display: "reviews",
