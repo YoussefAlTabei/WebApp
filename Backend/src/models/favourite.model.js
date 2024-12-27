@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
-import modelOptions from "./model.options";
+import mongoose, { Schema }  from "mongoose";
+import modelOptions from "./model.options.js";
 
 export default mongoose.model(
     "Favourite",
     mongoose.Schema({
         user: {
-            type: SchemaType.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: "User",
             required: true
         },
