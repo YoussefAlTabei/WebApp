@@ -6,13 +6,13 @@ import themeModeSlice from "./features/themeModeSlice";
 import userSlice from "./features/userSlice";
 
 const store = configureStore({
-    reducer: {
-        user: userSlice,
-        themeMode: themeModeSlice,
-        authModal: authModalSlice,
-        globalLoading: globalLoadingSlice,
-        appState: appStateSlice
-    }
+  reducer: {
+    user: userSlice,
+    themeMode: themeModeSlice,
+    authModal: authModalSlice,
+    globalLoading: globalLoadingSlice,
+    appState: appStateSlice
+  }
 });
 
 export default store;

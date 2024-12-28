@@ -1,3 +1,3 @@
 export default function WatchList() {
-    return <> watch list </>;
+    return null;
 }
