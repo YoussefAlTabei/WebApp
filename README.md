@@ -46,8 +46,8 @@ MyMovieList is a comprehensive web application built with the MERN stack (MongoD
 13. **Social Sharing**:
     - Allows users to share movie or TV series pages and reviews on social media platforms.
    
-14. **update password**:
-    - Users can securely update their account password through the profile settings page.
+14. **Password Hashing**:
+    - Passwords are hashed with specific salt to give a safe and secure experience for the users.
 
 15. **Videos Related to the Media**:
     - Access exclusive media content, such as promotional videos, behind-the-scenes footage, and trailers for movies or TV series.
