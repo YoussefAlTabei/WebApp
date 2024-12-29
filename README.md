@@ -14,7 +14,7 @@ MyMovieList is a comprehensive web application built with the MERN stack (MongoD
    - Users can easily search for movies or TV series by name.
 
 3. **Filter**:
-   - Filter search results by popularity or release date.
+   - Filter search results by Movie, TV series or Person.
 
 4. **User Authentication**:
    - Secure login and registration system for personalized experiences.
@@ -31,32 +31,26 @@ MyMovieList is a comprehensive web application built with the MERN stack (MongoD
 8. **Dark & Light Mode**:
    - Customizable visual experiences with dark and light mode options.
 
-9. **Watch Providers**:
-   - Displays streaming or viewing platforms where each movie or TV series is available.
-
-10. **Similar Movies**:
+9. **Similar Movies**:
     - Provides suggestions for similar movies or TV series based on the current page.
 
-11. **Watchlist**:
-    - Allows users to save movies or TV series for later viewing.
-
-12. **Favorite Movies List**:
+10. **Favorite Movies List**:
     - Enables users to create and manage a personalized list of their favorite movies.
 
-13. **Responsive Design**:
+11. **Responsive Design**:
     - Ensures seamless compatibility and functionality across various devices, including desktops, tablets, and mobile phones.
 
-14. **Trending Section**:
+12. **Trending Section**:
     - Highlights the most popular or highly rated movies and TV series.
 
-15. **Available Regions**:
-    - Shows the regions where each movie or TV series can be streamed or viewed.
-
-16. **Social Sharing**:
+13. **Social Sharing**:
     - Allows users to share movie or TV series pages and reviews on social media platforms.
+   
+14. **update password**:
+    - Users can securely update their account password through the profile settings page.
 
-17. **Contact Us**:
-    - Provides a form for users to contact developers and submit feedback about the website.
+15. **Videos Related to the Media**:
+    - Access exclusive media content, such as promotional videos, behind-the-scenes footage, and trailers for movies or TV series.
 
 ---
 
