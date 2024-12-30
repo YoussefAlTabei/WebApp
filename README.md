@@ -137,5 +137,131 @@ MyMovieList/
 
 ---
 
+# OOP Principles in the SigninForm Component
+
+This project demonstrates the use of **Object-Oriented Programming (OOP) principles** within a React application, specifically in the implementation of a sign-in form (`SigninForm`) component. Below, we discuss how OOP principles like **encapsulation**, **inheritance**, and **reusability** are applied.
+
+## 1. Encapsulation
+
+Encapsulation is achieved by organizing the form logic into classes, separating concerns between business logic and UI rendering.
+
+### Example:
+- **`BaseForm` Class:**
+  Encapsulates common properties and methods for managing form configuration. This includes `initialValues`, `validationSchema`, and `onSubmitHandler`.
+
+  ```javascript
+  class BaseForm {
+    constructor(initialValues, validationSchema, onSubmitHandler) {
+      this.initialValues = initialValues;
+      this.validationSchema = validationSchema;
+      this.onSubmitHandler = onSubmitHandler;
+    }
+  }
+  ```
+
+- **Benefits:**
+  - Modular and reusable code.
+  - Clean separation of form logic from the UI.
+
+## 2. Inheritance
+
+Inheritance is used to create specialized forms by extending the `BaseForm` class. For example, the `SigninFormHandler` class inherits from `BaseForm` and adds sign-in-specific logic, such as API calls and managing state.
+
+### Example:
+- **`SigninFormHandler` Class:**
+  Extends `BaseForm` to customize the behavior for user sign-in.
+
+  ```javascript
+  class SigninFormHandler extends BaseForm {
+    constructor(dispatch, setLoading, setErrorMessage) {
+      super(
+        {
+          username: "",
+          password: ""
+        },
+        Yup.object({
+          username: Yup.string()
+            .min(8, "username minimum 8 characters")
+            .required("username is required"),
+          password: Yup.string()
+            .min(8, "password minimum 8 characters")
+            .required("password is required")
+        }),
+        async (values, formikHelpers) => {
+          setErrorMessage(undefined);
+          setLoading(true);
+          const { response, err } = await userApi.signin(values);
+          setLoading(false);
+
+          if (response) {
+            formikHelpers.resetForm();
+            dispatch(setUser(response));
+            dispatch(setAuthModalOpen(false));
+            toast.success("Sign in success");
+          }
+
+          if (err) setErrorMessage(err.message);
+        }
+      );
+    }
+  }
+  ```
+
+- **Benefits:**
+  - Specialized logic is isolated within the child class (`SigninFormHandler`).
+  - Reduces code duplication for common form features.
+
+## 3. Reusability
+
+The `BaseForm` class is designed to be reused for creating different forms in the application. Developers can extend it to handle various use cases (e.g., sign-up, password reset).
+
+### Example:
+- By extending `BaseForm`, other forms can easily inherit common logic and add custom behavior:
+  ```javascript
+  class SignupFormHandler extends BaseForm {
+    constructor(dispatch) {
+      super(
+        { username: "", email: "", password: "" },
+        Yup.object({
+          username: Yup.string()
+            .min(8, "username minimum 8 characters")
+            .required("username is required"),
+          email: Yup.string().email("invalid email").required("email is required"),
+          password: Yup.string()
+            .min(8, "password minimum 8 characters")
+            .required("password is required")
+        }),
+        async (values) => {
+          // Custom sign-up logic
+        }
+      );
+    }
+  }
+  ```
+
+- **Benefits:**
+  - Reduces development time for new forms.
+  - Ensures consistency across forms by reusing shared logic.
+
+## 4. Adherence to React Rules
+
+While applying OOP principles, we ensure compliance with React's rules of hooks by:
+- Keeping `useFormik` calls inside functional components (e.g., `SigninForm`).
+- Using the `SigninFormHandler` class only for configuration and logic, not for directly calling hooks.
+
+### Example:
+- In `SigninForm`, we instantiate the `SigninFormHandler` class and use its configuration with `useFormik`:
+
+  ```javascript
+  const signinFormHandler = new SigninFormHandler(dispatch, setIsLoginRequest, setErrorMessage);
+
+  const signinForm = useFormik({
+    initialValues: signinFormHandler.initialValues,
+    validationSchema: signinFormHandler.validationSchema,
+    onSubmit: signinFormHandler.onSubmitHandler
+  });
+  ```
+
+
 
 
