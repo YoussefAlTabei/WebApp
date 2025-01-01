@@ -23,7 +23,7 @@ MyMovieList is a comprehensive web application built with the MERN stack (MongoD
    - Users can securely end their session and log out of the website.
 
 6. **Ratings**:
-   - Users can rate movies or TV series to share their preferences with others.
+   - Users can see the rate of movies or TV series to see others opinions on it.
 
 7. **Reviews**:
    - Users can write detailed reviews that are visible to the community.
