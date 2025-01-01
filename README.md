@@ -1,4 +1,4 @@
-# MyMovieList
+![image](https://github.com/user-attachments/assets/158533da-452b-4450-9a10-35e5fcb226b9)# MyMovieList
 
 ## Overview
 MyMovieList is a comprehensive web application built with the MERN stack (MongoDB, Express.js, React.js, and Node.js). It provides users with a personalized platform to explore, rate, review, and manage their favorite movies and TV series. 
@@ -23,7 +23,7 @@ MyMovieList is a comprehensive web application built with the MERN stack (MongoD
    - Users can securely end their session and log out of the website.
 
 6. **Ratings**:
-   - Users can rate movies or TV series to share their preferences with others.
+   - Users can see the rate of movies or TV series to see others opinions on it.
 
 7. **Reviews**:
    - Users can write detailed reviews that are visible to the community.
